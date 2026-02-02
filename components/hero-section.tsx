@@ -68,7 +68,7 @@ export function HeroSection() {
     <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Scanlines */}
       <div className="absolute inset-0 pointer-events-none bg-[repeating-linear-gradient(0deg,transparent,transparent_2px,rgba(0,255,65,0.02)_2px,rgba(0,255,65,0.02)_4px)]" />
-      
+
       {/* Grid pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(0,255,65,0.03)_1px,transparent_1px),linear-gradient(90deg,rgba(0,255,65,0.03)_1px,transparent_1px)] bg-[size:60px_60px]" />
 
@@ -97,7 +97,7 @@ export function HeroSection() {
                 <span className="text-primary">_</span>
                 <span className="text-foreground">Sab</span>
               </h1>
-              
+
               <div className="h-12 flex items-center">
                 <span className="text-xl md:text-2xl font-mono text-muted-foreground">
                   <span className="text-primary mr-2">$</span>
@@ -184,7 +184,7 @@ export function HeroSection() {
           </div>
 
           {/* Right side - Code terminal */}
-          <div className="hidden lg:block">
+          <div className="w-full lg:w-auto mt-12 lg:mt-0">
             <div className="bg-card border border-border rounded-lg overflow-hidden shadow-2xl shadow-primary/10">
               {/* Terminal header */}
               <div className="flex items-center gap-2 px-4 py-3 bg-secondary/80 border-b border-border">
@@ -195,7 +195,7 @@ export function HeroSection() {
                 </div>
                 <span className="ml-4 text-xs text-muted-foreground font-mono">~/developer.config.js</span>
               </div>
-              
+
               {/* Terminal content */}
               <div className="p-6 font-mono text-sm space-y-1 min-h-[320px] bg-[#0a0a0a]">
                 {terminalLines.map((line, i) => (
@@ -203,10 +203,10 @@ export function HeroSection() {
                     <span className="text-muted-foreground/40 w-6 text-right mr-4 select-none text-xs">{i + 1}</span>
                     <span className={
                       line.includes("const") ? "text-blue-400" :
-                      line.includes(":") && line.includes('"') && !line.includes("[") ? "text-foreground" :
-                      line.includes('"') ? "text-primary" :
-                      line.includes("[") || line.includes("]") || line.includes("{") || line.includes("}") || line.includes(",") ? "text-muted-foreground" :
-                      "text-foreground"
+                        line.includes(":") && line.includes('"') && !line.includes("[") ? "text-foreground" :
+                          line.includes('"') ? "text-primary" :
+                            line.includes("[") || line.includes("]") || line.includes("{") || line.includes("}") || line.includes(",") ? "text-muted-foreground" :
+                              "text-foreground"
                     }>
                       {line}
                     </span>
