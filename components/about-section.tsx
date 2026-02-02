@@ -32,10 +32,10 @@ const highlights = [
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-24 relative">
+    <section id="about" className="py-12 lg:py-24 relative">
       {/* Grid pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(0,255,65,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,255,65,0.02)_1px,transparent_1px)] bg-[size:60px_60px]" />
-      
+
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
           {/* Section header */}
@@ -75,7 +75,7 @@ export function AboutSection() {
                 </div>
                 <span className="ml-4 text-xs text-muted-foreground font-mono">~/about.txt</span>
               </div>
-              
+
               <div className="p-6 font-mono text-sm space-y-4">
                 <p className="text-muted-foreground leading-relaxed">
                   <span className="text-primary">{">"}</span> Computer Science (Cybersecurity) student with hands-on experience in{" "}
@@ -83,10 +83,10 @@ export function AboutSection() {
                   <span className="text-primary">Machine Learning</span>, and{" "}
                   <span className="text-primary">Cloud Computing</span>.
                 </p>
-                
+
                 <p className="text-muted-foreground leading-relaxed">
                   <span className="text-primary">{">"}</span> Experienced in building scalable ML models with{" "}
-                  <span className="text-foreground">95% accuracy</span>, real-time data pipelines, 
+                  <span className="text-foreground">95% accuracy</span>, real-time data pipelines,
                   and security analytics systems.
                 </p>
 
