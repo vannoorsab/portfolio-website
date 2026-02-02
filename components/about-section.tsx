@@ -32,7 +32,7 @@ const highlights = [
 
 export function AboutSection() {
   return (
-    <section id="about" className="py-12 lg:py-24 relative">
+    <section id="about" className="py-8 lg:py-24 relative">
       {/* Grid pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(0,255,65,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,255,65,0.02)_1px,transparent_1px)] bg-[size:60px_60px]" />
 

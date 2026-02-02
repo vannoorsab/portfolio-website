@@ -42,18 +42,45 @@ export function ContactSection() {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setIsSubmitting(true)
-    await new Promise(resolve => setTimeout(resolve, 1000))
-    setIsSubmitting(false)
-    setSubmitted(true)
-    setFormState({ name: "", email: "", message: "" })
-    setTimeout(() => setSubmitted(false), 5000)
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          access_key: "51ada227-de44-41c7-ba25-7ba7558dcca6",
+          name: formState.name,
+          email: formState.email,
+          message: formState.message,
+          subject: `New Contact from Portfolio: ${formState.name}`,
+        }),
+      });
+
+      const result = await response.json();
+      if (result.success) {
+        setSubmitted(true)
+        setFormState({ name: "", email: "", message: "" })
+        setTimeout(() => setSubmitted(false), 5000)
+      } else {
+        console.error("Submission failed:", result);
+        alert("Something went wrong. Please try again or contact me directly via LinkedIn.");
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Failed to send message. Please check your connection.");
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
     <section id="contact" className="py-24 relative">
       {/* Grid pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(rgba(0,255,65,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(0,255,65,0.02)_1px,transparent_1px)] bg-[size:60px_60px]" />
-      
+
       <div className="container mx-auto px-6 relative z-10">
         <div className="max-w-6xl mx-auto">
           {/* Section header */}
@@ -85,7 +112,7 @@ export function ContactSection() {
                   </div>
                   <span className="ml-4 text-xs text-muted-foreground font-mono">~/socials/</span>
                 </div>
-                
+
                 <div className="p-4 space-y-2">
                   {socialLinks.map((link) => (
                     <Link
@@ -154,7 +181,7 @@ export function ContactSection() {
                 </div>
                 <span className="ml-4 text-xs text-muted-foreground font-mono">~/send_message.sh</span>
               </div>
-              
+
               <div className="p-6">
                 {submitted ? (
                   <div className="text-center py-12">
@@ -213,10 +240,10 @@ export function ContactSection() {
                       />
                     </div>
 
-                    <Button 
-                      type="submit" 
-                      size="lg" 
-                      className="w-full font-mono bg-primary text-primary-foreground hover:bg-primary/90" 
+                    <Button
+                      type="submit"
+                      size="lg"
+                      className="w-full font-mono bg-primary text-primary-foreground hover:bg-primary/90"
                       disabled={isSubmitting}
                     >
                       {isSubmitting ? (
