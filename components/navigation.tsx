@@ -99,29 +99,34 @@ export function Navigation() {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
-        {isOpen && (
-          <div className="md:hidden mt-4 pb-4 border-t border-border/50 pt-4">
+        {/* Mobile Navigation Dropdown */}
+        <div
+          className={cn(
+            "md:hidden absolute top-full left-0 right-0 overflow-hidden transition-all duration-300 ease-in-out",
+            isOpen ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+          )}
+        >
+          <div className="mx-6 mb-4 p-4 bg-background/95 backdrop-blur-md border border-border/50 rounded-lg shadow-xl shadow-primary/5">
             <ul className="flex flex-col gap-1">
               {navItems.map((item, index) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
                     className={cn(
-                      "block px-3 py-2 font-mono text-sm rounded transition-colors",
+                      "block px-3 py-2 font-mono text-sm rounded transition-colors flex items-center gap-3",
                       activeSection === item.href.slice(1)
                         ? "text-primary bg-primary/10"
                         : "text-muted-foreground hover:text-primary hover:bg-primary/5"
                     )}
                     onClick={() => setIsOpen(false)}
                   >
-                    <span className="text-primary/60 mr-2">{String(index + 1).padStart(2, '0')}.</span>
+                    <span className="text-primary/60 text-[10px] w-4">{String(index + 1).padStart(2, '0')}.</span>
                     {item.label}
                   </Link>
                 </li>
               ))}
-              <li className="mt-4">
-                <Button asChild size="sm" className="w-full font-mono">
+              <li className="mt-4 pt-4 border-t border-border/50">
+                <Button asChild size="sm" className="w-full font-mono bg-primary text-primary-foreground">
                   <Link href="#contact" onClick={() => setIsOpen(false)}>
                     <span className="opacity-70 mr-1">$</span>
                     hire_me
@@ -130,7 +135,7 @@ export function Navigation() {
               </li>
             </ul>
           </div>
-        )}
+        </div>
       </nav>
     </header>
   )
