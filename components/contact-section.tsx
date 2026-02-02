@@ -240,7 +240,7 @@ export function ContactSection() {
           <div className="mt-20 pt-8 border-t border-border">
             <div className="flex flex-col md:flex-row items-center justify-between gap-4">
               <p className="text-muted-foreground text-xs font-mono">
-                <span className="text-primary">{">"}</span> {new Date().getFullYear()} Vannoor Sab // Built with Next.js & Tailwind
+                <span className="text-primary">{">"}</span> {new Date().getFullYear()} Vannoor Sab
               </p>
               <div className="flex items-center gap-4">
                 {socialLinks.map((link) => (
