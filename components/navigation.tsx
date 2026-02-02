@@ -24,7 +24,7 @@ export function Navigation() {
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50)
-      
+
       // Update active section based on scroll position
       const sections = navItems.map(item => item.href.slice(1))
       for (const section of sections.reverse()) {
@@ -52,9 +52,9 @@ export function Navigation() {
             <div className="w-8 h-8 bg-primary/10 border border-primary/50 rounded flex items-center justify-center group-hover:bg-primary/20 transition-colors">
               <Terminal className="w-4 h-4 text-primary" />
             </div>
-            <span className="font-mono text-lg">
-              <span className="text-primary">v</span>
-              <span className="text-foreground">sab</span>
+            <span className="font-mono text-lg font-bold">
+              <span className="text-primary">V</span>
+              <span className="text-foreground">S</span>
               <span className="text-primary animate-pulse">_</span>
             </span>
           </Link>

@@ -10,23 +10,14 @@ const jetbrains = JetBrains_Mono({ subsets: ["latin"], variable: "--font-jetbrai
 export const metadata: Metadata = {
   title: 'Vannoor Sab | Cybersecurity & AI Engineer',
   description: 'Cybersecurity Engineer, AI/ML Specialist, and Cloud Architect building secure, intelligent systems. Google Cloud Innovator with expertise in threat intelligence, machine learning, and scalable cloud solutions.',
-  generator: 'v0.app',
+  generator: 'VS',
   icons: {
     icon: [
       {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
+        url: '/vs-icon.png',
       },
     ],
-    apple: '/apple-icon.png',
+    apple: '/vs-icon.png',
   },
 }
 
